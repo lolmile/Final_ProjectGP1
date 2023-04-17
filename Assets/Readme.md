@@ -55,6 +55,24 @@ Author: Cainos ( https://cainos.itch.io/ )
 
 ---------------------------------------------------------------------------------------------
 
+Dragon assets:
+
+Name: Dragon Warrior
+
+URL: https://assetstore.unity.com/packages/2d/characters/dragon-warrior-free-93896
+
+Author: KiN Ng( http://animationclock.blogspot.com/ ) 
+
+---------------------------------------------------------------------------------------------
+Background assets:
+
+Name: Taking in the view
+
+URL: https://wall.alphacoders.com/big.php?i=986566
+
+Author: bytecodeminer ( https://alphacoders.com/users/profile/97828 ) 
+
+---------------------------------------------------------------------------------------------
 
 
 
