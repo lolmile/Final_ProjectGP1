@@ -1,48 +1,12 @@
 fileFormatVersion: 2
-guid: dc5239d2ffa870a4f89b9ddfbf0d24f6
+guid: 3d06f3d130676b34eaafb9ae44ad0e16
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 21300000
-    second: dragon_attack_0
-  - first:
-      213: 21300002
-    second: dragon_attack_1
-  - first:
-      213: 21300004
-    second: dragon_attack_2
-  - first:
-      213: 21300006
-    second: dragon_attack_3
-  - first:
-      213: 21300008
-    second: dragon_attack_4
-  - first:
-      213: 21300010
-    second: dragon_attack_5
-  - first:
-      213: 21300012
-    second: dragon_attack_6
-  - first:
-      213: 21300014
-    second: dragon_attack_7
-  - first:
-      213: 21300016
-    second: dragon_attack_8
-  - first:
-      213: 21300018
-    second: dragon_attack_9
-  - first:
-      213: 21300020
-    second: dragon_attack_10
-  - first:
-      213: 21300022
-    second: dragon_attack_11
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -65,12 +29,12 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
     filterMode: 1
-    aniso: 16
+    aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
@@ -83,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 15
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -98,8 +62,8 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
-  cookieLightType: 1
+  applyGammaDecoding: 0
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -177,253 +141,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dragon_attack_0
+      name: Idle_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 300
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 02305410000000000800000000000000
-      internalID: 21300000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dragon_attack_1
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 300
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 22305410000000000800000000000000
-      internalID: 21300002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dragon_attack_2
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 300
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 42305410000000000800000000000000
-      internalID: 21300004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dragon_attack_3
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 300
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 62305410000000000800000000000000
-      internalID: 21300006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dragon_attack_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 200
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 82305410000000000800000000000000
-      internalID: 21300008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dragon_attack_5
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 200
-        width: 100
-        height: 100
+        x: 858
+        y: 83
+        width: 54
+        height: 95
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a2305410000000000800000000000000
-      internalID: 21300010
+      spriteID: ad80d2735ecce6c45a9ec3ed7de3aa27
+      internalID: -1148670207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dragon_attack_6
+      name: Idle_5
       rect:
         serializedVersion: 2
-        x: 200
-        y: 200
-        width: 100
-        height: 100
+        x: 108
+        y: 83
+        width: 54
+        height: 95
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c2305410000000000800000000000000
-      internalID: 21300012
+      spriteID: d788c7da378470240958414c0bf5db12
+      internalID: 1795282234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dragon_attack_7
+      name: Idle_6
       rect:
         serializedVersion: 2
-        x: 300
-        y: 200
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e2305410000000000800000000000000
-      internalID: 21300014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dragon_attack_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 100
-        width: 100
-        height: 100
+        x: 358
+        y: 83
+        width: 54
+        height: 95
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 03305410000000000800000000000000
-      internalID: 21300016
+      spriteID: c0b24c3c6db356d49b94d0880d40b7a0
+      internalID: -904084625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dragon_attack_9
+      name: Idle_7
       rect:
         serializedVersion: 2
-        x: 100
-        y: 100
-        width: 100
-        height: 100
+        x: 608
+        y: 83
+        width: 54
+        height: 95
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 23305410000000000800000000000000
-      internalID: 21300018
+      spriteID: b78da713daa005d469f5b846bd61cf9f
+      internalID: -827568489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dragon_attack_10
+      name: Idle_8
       rect:
         serializedVersion: 2
-        x: 200
-        y: 100
-        width: 100
-        height: 100
+        x: 1108
+        y: 83
+        width: 54
+        height: 95
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 43305410000000000800000000000000
-      internalID: 21300020
+      spriteID: 41b41e7483b11154ba6ca665a73454a0
+      internalID: 2115316097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dragon_attack_11
+      name: Idle_9
       rect:
         serializedVersion: 2
-        x: 300
-        y: 100
-        width: 100
-        height: 100
+        x: 1358
+        y: 83
+        width: 54
+        height: 95
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 63305410000000000800000000000000
-      internalID: 21300022
+      spriteID: d6908ec4f31496f47a26a9d3ac77adde
+      internalID: 1372515599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_11
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 83
+        width: 54
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84432c74af051e0439693e32ea0be00c
+      internalID: -861602229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_12
+      rect:
+        serializedVersion: 2
+        x: 1858
+        y: 83
+        width: 54
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d832559d6ea6d34baba666bc3c2ff8e
+      internalID: 346995171
       vertices: []
       indices: 
       edges: []
@@ -431,7 +311,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -439,18 +319,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dragon_attack_3: 21300006
-      dragon_attack_2: 21300004
-      dragon_attack_0: 21300000
-      dragon_attack_6: 21300012
-      dragon_attack_10: 21300020
-      dragon_attack_5: 21300010
-      dragon_attack_11: 21300022
-      dragon_attack_9: 21300018
-      dragon_attack_8: 21300016
-      dragon_attack_7: 21300014
-      dragon_attack_4: 21300008
-      dragon_attack_1: 21300002
+      Idle_4: 1666406731
+      Idle_12: 346995171
+      Idle_17: -382045201
+      Idle_1: 496142197
+      Idle_14: 1584086182
+      Idle_10: -912612172
+      Idle_8: 2115316097
+      Idle_3: -1762785350
+      Idle_16: -800707679
+      Idle_5: 1795282234
+      Idle_0: 244129820
+      Idle_6: -904084625
+      Idle_7: -827568489
+      Idle_13: -177538556
+      Idle_11: -861602229
+      Idle_15: -2015985200
+      Idle_2: -1148670207
+      Idle_9: 1372515599
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
