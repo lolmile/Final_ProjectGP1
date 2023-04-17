@@ -14,7 +14,7 @@ public class Player_Movement : MonoBehaviour
     private float dirX = 0f;
     private float dirY = 0f;
 
-    private enum MovementState { idle, running, runningUp, runningDown }
+    private enum MovementState { running, runningUp, runningDown }
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +28,15 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dirX = Input.GetAxis("Horizontal");
-        dirY = Input.GetAxis("Vertical");
+        dirX = Input.GetAxisRaw("Horizontal");
+        dirY = Input.GetAxisRaw("Vertical");
 
-        Debug.Log(dirX+ ", " + dirY);
+        UpdateAnimation();
+    }
 
+    private void FixedUpdate()
+    {
         rb.velocity = new Vector2(dirX * moveSpeed, dirY * moveSpeed);
-
     }
 
     private void UpdateAnimation()
@@ -53,7 +55,7 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
-            state = MovementState.idle;
+            //state = MovementState.idle;
         }
 
         if (dirY > 0f)
