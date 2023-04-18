@@ -55,20 +55,19 @@ public class Player_Movement : MonoBehaviour
     {
         if (dirX == 0 && dirY == 0)
         {
-            anim.SetInteger("movementState", 5);
             switch (currentMovementState)
             {
                 case MovementState.Up:
-                    anim.SetInteger("idleState", 1);
+                    anim.SetInteger("state", 5);
                     break;
                 case MovementState.Down:
-                    anim.SetInteger("idleState", 2);
+                    anim.SetInteger("state", 3);
                     break;
                 case MovementState.Left:
-                    anim.SetInteger("idleState", 0);
+                    anim.SetInteger("state", 4);
                     break;
                 case MovementState.Right:
-                    anim.SetInteger("idleState", 0);
+                    anim.SetInteger("state", 4);
                     break;
                 default:
                     break;
@@ -80,26 +79,26 @@ public class Player_Movement : MonoBehaviour
             if (dirX > 0)
             {
                 currentMovementState = MovementState.Right;
-                anim.SetInteger("movementState", 0);
+                anim.SetInteger("state", 1);
                 sprite.flipX = true;
             }
             else if (dirX < 0)
             {
                 currentMovementState = MovementState.Left;
-                anim.SetInteger("movementState", 0);
+                anim.SetInteger("state", 1);
                 sprite.flipX = false;
             }
 
             if (dirY > 0)
             {
                 currentMovementState = MovementState.Up;
-                anim.SetInteger("movementState", 1);
+                anim.SetInteger("state", 2);
                 sprite.flipX = false;
             }
             else if (dirY < 0)
             {
                 currentMovementState = MovementState.Down;
-                anim.SetInteger("movementState", 2);
+                anim.SetInteger("state", 0);
                 sprite.flipX = false;
             }
         }
