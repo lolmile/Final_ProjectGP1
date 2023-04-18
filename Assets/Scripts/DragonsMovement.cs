@@ -38,6 +38,7 @@ public class DragonsMovement : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
+
         // Move the enemy towards the waypoint
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, Time.deltaTime * speed);
 
@@ -67,11 +68,5 @@ public class DragonsMovement : MonoBehaviour
             anim.SetInteger("state", (int)MovementState.attack);
         }
     }
-
-
-
-
-
-
 
 }
