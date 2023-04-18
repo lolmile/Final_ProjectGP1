@@ -386,12 +386,12 @@ SpriteRenderer:
   m_SortingLayerID: -44025399
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1148670207, guid: 3d06f3d130676b34eaafb9ae44ad0e16, type: 3}
+  m_Sprite: {fileID: 6553867, guid: 3d06f3d130676b34eaafb9ae44ad0e16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.54, y: 0.95}
+  m_Size: {x: 16.666666, y: 16.666666}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9180,7 +9180,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ae3d921395947d346999071e7d09caeb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
