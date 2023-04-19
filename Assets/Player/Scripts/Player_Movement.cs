@@ -6,9 +6,10 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private SpriteRenderer sprite;
+    private SpriteRenderer pSprite;
     private BoxCollider2D coll;
     private Animator anim;
+    private SpriteRenderer sSprite;
 
     public float moveSpeed = 7;
 
@@ -23,7 +24,7 @@ public class Player_Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
+        pSprite = GetComponent<SpriteRenderer>();
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
     }
@@ -33,6 +34,8 @@ public class Player_Movement : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal");
         dirY = Input.GetAxisRaw("Vertical");
+
+        ChangeAnimation();
     }
 
     private void FixedUpdate()
@@ -48,7 +51,6 @@ public class Player_Movement : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
-        ChangeAnimation();
     }
 
     private void ChangeAnimation()
@@ -80,26 +82,26 @@ public class Player_Movement : MonoBehaviour
             {
                 currentMovementState = MovementState.Right;
                 anim.SetInteger("state", 1);
-                sprite.flipX = true;
+                pSprite.flipX = true;
             }
             else if (dirX < 0)
             {
                 currentMovementState = MovementState.Left;
                 anim.SetInteger("state", 1);
-                sprite.flipX = false;
+                pSprite.flipX = false;
             }
 
             if (dirY > 0)
             {
                 currentMovementState = MovementState.Up;
                 anim.SetInteger("state", 2);
-                sprite.flipX = false;
+                pSprite.flipX = false;
             }
             else if (dirY < 0)
             {
                 currentMovementState = MovementState.Down;
                 anim.SetInteger("state", 0);
-                sprite.flipX = false;
+                pSprite.flipX = false;
             }
         }
     }
