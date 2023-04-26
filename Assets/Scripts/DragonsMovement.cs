@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DragonsMovement : MonoBehaviour
 {
-    public GameObject princess;
-    public float dragonSpeed = 5f;
-    public float attackDistance = 100f;
+    public GameObject player;
+    public float dragonSpeed = 2f;
+    public float attackDistance = 5f;
     public enum DragonAnim { Idle, Walk, Attack, Hurt }
     public DragonAnim currentAnim;
 
@@ -23,7 +23,7 @@ public class DragonsMovement : MonoBehaviour
     void Update()
     {
         // calculate distance between dragon and princess
-        float distance = Vector3.Distance(transform.position, princess.transform.position);
+        float distance = Vector3.Distance(transform.position, player.transform.position);
 
         if (distance < attackDistance)
         {
@@ -42,7 +42,7 @@ public class DragonsMovement : MonoBehaviour
         if (isFollowing)
         {
             // move dragon towards princess
-            Vector3 direction = (princess.transform.position - transform.position).normalized;
+            Vector3 direction = (player.transform.position - transform.position).normalized;
             transform.Translate(direction * dragonSpeed * Time.deltaTime, Space.World);
 
             // face the direction of movement
@@ -65,7 +65,7 @@ public class DragonsMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // check if princess has entered attack area
-        if (other.gameObject == princess)
+        if (other.gameObject == player)
         {
             isFollowing = true;
             SetAnimation(DragonAnim.Attack);
@@ -77,7 +77,7 @@ public class DragonsMovement : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         // check if princess has exited attack area
-        if (other.gameObject == princess)
+        if (other.gameObject == player)
         {
             isFollowing = false;
             SetAnimation(DragonAnim.Attack);

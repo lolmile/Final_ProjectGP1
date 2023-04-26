@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 39013358}
   m_Layer: 0
   m_Name: Princess
-  m_TagString: Player
+  m_TagString: princess
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9161,12 +9161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686c69a87d17eb645a01c5a4624c2aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1944898959}
-  - {fileID: 1445794128}
-  - {fileID: 247172159}
-  - {fileID: 1028451528}
-  speed: 2
+  princess: {fileID: 39013357}
+  dragonSpeed: 5
+  attackDistance: 100
+  currentAnim: 0
 --- !u!95 &1845137781
 Animator:
   serializedVersion: 5

@@ -67,6 +67,6 @@ public class Player_Movement : MonoBehaviour
             state = MovementState.runningDown;
         }
 
-        anim.SetInteger("state", (int)state);
+        //  anim.SetInteger("state", (int)state);
     }
 }
