@@ -73,7 +73,13 @@ URL: https://wall.alphacoders.com/big.php?i=986566
 Author: bytecodeminer ( https://alphacoders.com/users/profile/97828 ) 
 
 ---------------------------------------------------------------------------------------------
+Sound Effects:
 
+Name: RPG_Essentials_Free
+
+URL: https://assetstore.unity.com/packages/audio/sound-fx/rpg-essentials-sound-effects-free-227708
+
+Author: leohpaz
 
 
 
