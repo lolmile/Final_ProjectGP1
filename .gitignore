@@ -61,3 +61,15 @@ crashlytics-build.properties
 /UserSettings/Layouts/default-2021.dwlt.bak
 /UserSettings/Layouts/default-2021.dwlt
 /UserSettings/EditorUserSettings.asset
+/Assets/Animations/DragonDie.anim.meta
+/Assets/Animations/DragonHurt.anim
+/Assets/Animations/DragonHurt.anim.meta
+/Assets/Animations/Enemies.controller
+/Assets/Animations/Enemies.controller.meta
+/Assets/Animations/EvilAttack.anim
+/Assets/Animations/EvilAttack.anim.meta
+/Assets/Animations/EvilDie.anim
+/Assets/Animations/EvilDie.anim.meta
+/Assets/Animations/EvilHit.anim
+/Assets/Animations/EvilHit.anim.meta
+/Assets/Animations/EvilIdle.anim
