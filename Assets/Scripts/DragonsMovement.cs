@@ -4,69 +4,107 @@ using UnityEngine;
 
 public class DragonsMovement : MonoBehaviour
 {
-    [SerializeField] private GameObject[] waypoints;
-    private int currentWaypointIndex = 0;
-    [SerializeField] private float speed = .5f;
-    private Animator anim;
-    private GameObject target;
-    private enum MovementState { idle, walk, strike, attack, crouch, crouchAttack, die, dizzy, flyingKick, hurt, jumpAttack, win };
-    private void Start()
+    public GameObject princess;
+    public float dragonSpeed = 5f;
+    public float attackDistance = 100f;
+    public enum DragonAnim { Idle, Walk, Attack, Hurt }
+    public DragonAnim currentAnim;
+
+    private Animator animator;
+    private bool isFollowing = false;
+    private bool isAttacking = false;
+
+    void Start()
     {
-        anim = GetComponent<Animator>();
-        anim.SetInteger("state", (int)MovementState.idle); // set the initial animation state to idle
+        animator = GetComponent<Animator>();
+        animator.SetInteger("state", (int)currentAnim);
     }
-    private void Update()
+
+    void Update()
     {
-        if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < .1f)
+        // calculate distance between dragon and princess
+        float distance = Vector3.Distance(transform.position, princess.transform.position);
+
+        if (distance < attackDistance)
         {
-            currentWaypointIndex++;
-            if (currentWaypointIndex >= waypoints.Length)
+            // if princess is close enough, start following her
+            isFollowing = true;
+            isAttacking = false;
+            SetAnimation(DragonAnim.Walk);
+        }
+        else if (isFollowing)
+        {
+            // if princess is out of range, stop following her
+            isFollowing = false;
+            SetAnimation(DragonAnim.Idle);
+        }
+
+        if (isFollowing)
+        {
+            // move dragon towards princess
+            Vector3 direction = (princess.transform.position - transform.position).normalized;
+            transform.Translate(direction * dragonSpeed * Time.deltaTime, Space.World);
+
+            // face the direction of movement
+            FlipTowards(direction);
+            SetAnimation(DragonAnim.Walk);
+
+            // check if dragon is close enough to attack
+            if (distance <= attackDistance / 2)
             {
-                currentWaypointIndex = 0;
+                isAttacking = true;
+                SetAnimation(DragonAnim.Attack);
+            }
+            else
+            {
+                isAttacking = false;
             }
         }
-        // Get the direction of movement
-        Vector3 direction = waypoints[currentWaypointIndex].transform.position - transform.position;
+    }
 
-        // Flip the sprite if moving to the left
-        if (direction.x < 0)
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // check if princess has entered attack area
+        if (other.gameObject == princess)
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            isFollowing = true;
+            SetAnimation(DragonAnim.Attack);
+            Debug.Log("Princess has entered attack area!");
+
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        // check if princess has exited attack area
+        if (other.gameObject == princess)
+        {
+            isFollowing = false;
+            SetAnimation(DragonAnim.Attack);
+            Debug.Log("Princess has escaped!");
+        }
+
+    }
+
+    void SetAnimation(DragonAnim anim)
+    {
+        if (currentAnim == anim) return;
+        animator.SetInteger("state", (int)anim);
+        currentAnim = anim;
+    }
+
+    void FlipTowards(Vector3 targetDirection)
+    {
+        if (targetDirection.x < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else
         {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
-
-
-        // Move the enemy towards the waypoint
-        transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, Time.deltaTime * speed);
-
-    }
-    private void UpdateAnimationState()
-    {
-        if (transform.position != waypoints[currentWaypointIndex].transform.position)
-        {
-            anim.SetInteger("state", (int)MovementState.walk);
-        }
-        else
-        {
-            anim.SetInteger("state", (int)MovementState.idle);
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
-    public void FixedUpdate()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, speed * Time.deltaTime);
-        UpdateAnimationState();
-    }
-    //Set the attack animation
-    public void onTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Princess")
-        {
-            target = collision.gameObject;
-            anim.SetInteger("state", (int)MovementState.attack);
-        }
-    }
-
 }
+
+
+
