@@ -6,6 +6,8 @@ public class PlayerCombat : MonoBehaviour
 {
     public Animator animator;
     private Player_Movement movement;
+    private Rigidbody2D rb;
+    public int totalKilled = 0;
 
     [SerializeField] AudioSource attackSound;
     [SerializeField] Transform attackPoint;
@@ -19,6 +21,7 @@ public class PlayerCombat : MonoBehaviour
     private void Start()
     {
         movement = GetComponent<Player_Movement>();
+        rb= GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -28,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                rb.velocity = Vector2.zero;
                 attackSound.Play();
                 if (movement.currentMovementState == Player_Movement.MovementState.Left)
                 {
@@ -59,6 +63,18 @@ public class PlayerCombat : MonoBehaviour
 
     }
 
+    public void StartMovement()
+    {
+        // Disable the movement script here
+        GetComponent<Player_Movement>().enabled = true;
+    }
+
+    public void StopMovement()
+    {
+        // Disable the movement script here
+        GetComponent<Player_Movement>().enabled = false;
+    }
+
 
     void Attack()
     {
@@ -76,5 +92,10 @@ public class PlayerCombat : MonoBehaviour
         {
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }
+    }
+
+    public void UpKillCount()
+    {
+        totalKilled++;
     }
 }

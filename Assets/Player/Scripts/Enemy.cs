@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] PlayerCombat killcount;
     public int maxHealth = 100;
     private int currentHealth;
+    private Collider2D col;
 
     void Start()
     {
         currentHealth = maxHealth;
+        col = GetComponent<Collider2D>();
     }
 
     public void TakeDamage(int damage)
@@ -27,8 +30,9 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         //DIE ANIMATION
-
+  
         Debug.Log("DEAD");
+        killcount.UpKillCount();
     }
 
     public void OnDestroy()
