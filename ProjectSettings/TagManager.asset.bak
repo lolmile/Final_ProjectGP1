@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Enemy
+=======
+  - princess
+>>>>>>> 5f71f16e084f864284c49ada4f0f4f92b54541f2
   layers:
   - Default
   - TransparentFX
