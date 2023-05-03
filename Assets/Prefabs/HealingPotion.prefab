@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 1, y: 1.01001}
   m_EdgeRadius: 0
 --- !u!114 &6374716925048802779
 MonoBehaviour:
@@ -125,6 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b58e753fe68716f48a5f087359b44d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
+  height: 1
+  particleSystemPrefab: {fileID: 8991371454562179931, guid: e4cff7285978cf54bbbe32392d207818,
+    type: 3}
 --- !u!95 &7691206735230737423
 Animator:
   serializedVersion: 5
