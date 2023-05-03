@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -7,26 +8,35 @@ public class PlayerCombat : MonoBehaviour
     public Animator animator;
     private Player_Movement movement;
     private Rigidbody2D rb;
-    public int totalKilled = 0;
 
     [SerializeField] AudioSource attackSound;
     [SerializeField] Transform attackPoint;
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] int attackDamage = 25;
     [SerializeField] float attackRate = 0.5f;
+    [SerializeField] private TextMeshProUGUI text;
     private float nextAttackTime = 0f;
     public LayerMask enemyLayers;
 
+    public int totalKilled = 0;
+    public int maxHealth = 100;
+    public int currenthealth;
+
+    public healthBar healthBar;
 
     private void Start()
     {
         movement = GetComponent<Player_Movement>();
         rb= GetComponent<Rigidbody2D>();
+
+        currenthealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if(Time.time >= nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -75,6 +85,11 @@ public class PlayerCombat : MonoBehaviour
         GetComponent<Player_Movement>().enabled = false;
     }
 
+    public void TakeDamage(int damage)
+    {
+        currenthealth -= damage;
+        healthBar.SetHealth(currenthealth);
+    }
 
     void Attack()
     {
@@ -97,5 +112,6 @@ public class PlayerCombat : MonoBehaviour
     public void UpKillCount()
     {
         totalKilled++;
+        text.text = totalKilled.ToString();
     }
 }

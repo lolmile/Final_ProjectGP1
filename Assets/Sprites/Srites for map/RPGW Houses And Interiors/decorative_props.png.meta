@@ -1369,7 +1369,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      decorative_props_9: -944702115
+      decorative_props_55: -342764627
       decorative_props_7: 762277268
       decorative_props_16: 2040416019
       decorative_props_29: 1981487498
@@ -1423,10 +1423,10 @@ TextureImporter:
       decorative_props_10: 1022827620
       decorative_props_42: -1123981393
       decorative_props_2: -1871748694
-      decorative_props_39: -2063958045
-      decorative_props_55: -342764627
-      decorative_props_18: 1696568520
       decorative_props_41: -701627404
+      decorative_props_9: -944702115
+      decorative_props_18: 1696568520
+      decorative_props_39: -2063958045
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
