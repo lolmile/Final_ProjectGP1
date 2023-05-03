@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         //DIE ANIMATION
-  
+        col.enabled= false;
         Debug.Log("DEAD");
         killcount.UpKillCount();
     }
