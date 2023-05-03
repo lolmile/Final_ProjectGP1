@@ -11744,7 +11744,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       main_houses_368: 21300736
-      main_houses_308: 21300616
+      main_houses_139: 21300278
       main_houses_39: 21300078
       main_houses_182: 21300364
       main_houses_134: 21300268
@@ -12224,8 +12224,8 @@ TextureImporter:
       main_houses_376: 21300752
       main_houses_164: 21300328
       main_houses_3: 21300006
-      main_houses_139: 21300278
       main_houses_351: 21300702
+      main_houses_308: 21300616
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

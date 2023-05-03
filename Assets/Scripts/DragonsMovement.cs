@@ -14,6 +14,8 @@ public class DragonsMovement : MonoBehaviour
     private bool isFollowing = false;
     private bool isAttacking = false;
 
+    public PlayerCombat playerCombat;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -70,7 +72,7 @@ public class DragonsMovement : MonoBehaviour
             isFollowing = true;
             SetAnimation(DragonAnim.Attack);
             Debug.Log("Princess has entered attack area!");
-
+            playerCombat.TakeDamage(10);
         }
     }
 
