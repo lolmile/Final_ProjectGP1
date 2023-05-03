@@ -19,18 +19,4 @@ public class healthBar : MonoBehaviour
         slider.value = health;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
-
-    void Start(){
-        SetHealth(10);
-    }
-
-    // void Start(){
-        //healthBar.SetMaxHealth(maxHealth);
-    // }
-
-    //void TakeDamage(int damage){
-
-        //currentHealth -= damage;
-        //healthBar.SetHealth(currentHealth);
-    //}
 }
