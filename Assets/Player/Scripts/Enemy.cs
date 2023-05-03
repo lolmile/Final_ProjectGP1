@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] PlayerCombat killcount;
     public int maxHealth = 100;
     private int currentHealth;
     private Animator anim;
@@ -23,11 +24,8 @@ public class Enemy : MonoBehaviour
 
         //PLAY ANIMATION
 
-
-
         if (currentHealth <= 0)
         {
-
             Die();
             OnDestroy();
 
@@ -45,6 +43,7 @@ public class Enemy : MonoBehaviour
         anim.SetTrigger("Death");
 
         Debug.Log("DEAD");
+        killcount.UpKillCount();
     }
 
     public void OnDestroy()
