@@ -7,13 +7,14 @@ public class DragonController : MonoBehaviour
     [SerializeField] float m_speed = 4.0f;
     private Animator anim;
     private Rigidbody2D rb;
-    [SerializeField] GameObject target;
     [SerializeField] float attackRange = 1f;
     [SerializeField] float followRange = 1f;
-    [SerializeField] float attackCooldown = 1f;
+    [SerializeField] float attackCooldown = 0.5f;
     [SerializeField] float attackNext = 0f;
     public int damage = 10;
-
+    private GameObject target;
+    private SpriteRenderer sprite;
+    Transform AttackRangerCenter;
 
     [SerializeField] PlayerCombat playerScript;
 
@@ -28,6 +29,8 @@ public class DragonController : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
+        AttackRangerCenter = GetComponentInChildren<Transform>();
+        sprite= GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -35,25 +38,14 @@ public class DragonController : MonoBehaviour
     {
         if (Time.time > attackNext)
         {
-            // attackNext = Time.time + attackCooldown;
-            //  playerScript.TakeDamage(damage);
             DragonMove();
         }
-
-
     }
     private void DragonMove()
     {
 
-        // Check if target is null
-        if (target == null)
-        {
-            target = GameObject.FindGameObjectWithTag("Player");
-        }
-        else
-        {
             // Calculate the distance between the enemy and the player
-            float distance = Vector3.Distance(transform.position, target.transform.position);
+            float distance = Vector3.Distance(AttackRangerCenter.position, target.transform.position);
 
             // If the distance is greater than the follow range, set the enemy state to idle
             if (distance > followRange)
@@ -61,58 +53,41 @@ public class DragonController : MonoBehaviour
                 anim.SetInteger("state", 0);
             }
             // If the distance is less than or equal to the follow range but greater than the attack range, set the enemy state to walk
-            else if (distance <= followRange && distance > attackRange)
+            else if (distance < followRange && distance > attackRange)
             {
                 anim.SetInteger("state", 1);
 
                 // Move the dragon towards the player
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, m_speed * Time.deltaTime);
+                gameObject.transform.position = Vector2.MoveTowards(AttackRangerCenter.transform.position, playerScript.attackPoint.transform.position, m_speed * Time.deltaTime);
 
                 // Flip the dragon if the player is to the left or right
                 if (target.transform.position.x < transform.position.x)
                 {
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    sprite.flipX = true;
                 }
                 else if (target.transform.position.x > transform.position.x)
                 {
-                    transform.localScale = new Vector3(1, 1, 1);
+                    sprite.flipX = false;
                 }
             }
 
-            // If the distance is less than or equal to the attack range, set the enemy state to attack
-            else if (distance <= attackRange)
+        else if (!playerScript.isDead)
+        {
+            //cooldown for 1 second
+            Collider2D[] hits = Physics2D.OverlapCircleAll(AttackRangerCenter.position, attackRange);
+            foreach (Collider2D hit in hits)
             {
-                // anim.SetInteger("state", 1);
-
-                //cooldown for 1 second
-
-
-
-                attackCooldown = 1f;
-                anim.SetInteger("state", 2);
-                playerScript.TakeDamage(damage);
-
-                attackNext = Time.time + attackCooldown;
-
-
-                //reset the cooldown
-
-
-                // Attack the player
-
-
-
+                if (hit.gameObject.CompareTag("Player"))
+                {
+                        // Attack the player
+                        anim.SetInteger("state", 2);
+                        playerScript.TakeDamage(damage);
+                        attackNext = Time.time + attackCooldown;
+                        break;
+                }
             }
         }
     }
-
-
-
-
-
-
-
-
 
 
     private void FollowThePlayer()

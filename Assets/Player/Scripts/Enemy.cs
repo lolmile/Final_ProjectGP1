@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        currentHealth = maxHealth;
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         coll = GetComponent<Collider2D>();
@@ -29,16 +30,18 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            OnDestroy();
+
         }
         else
         {
             anim.SetTrigger("hurt");
         }
+
     }
 
-    public void Die()
+    private void Die()
     {
-
         isDead = true;
         anim.SetTrigger("death");
         //GetComponent<DragonController>().enabled = false;
@@ -48,7 +51,16 @@ public class Enemy : MonoBehaviour
         killcount.UpKillCount();
     }
 
+    public void OnDestroy()
+    {
+        Destroy(gameObject, .5f);
 
+    }
+
+    public void Disable()
+    {
+        coll.enabled = false;
+    }
 
 
 }
