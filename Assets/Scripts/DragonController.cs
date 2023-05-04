@@ -53,12 +53,12 @@ public class DragonController : MonoBehaviour
                 anim.SetInteger("state", 0);
             }
             // If the distance is less than or equal to the follow range but greater than the attack range, set the enemy state to walk
-            else if (distance <= followRange && distance > attackRange)
+            else if (distance < followRange && distance > attackRange)
             {
                 anim.SetInteger("state", 1);
 
                 // Move the dragon towards the player
-                gameObject.transform.position = Vector2.MoveTowards(AttackRangerCenter.transform.position, target.transform.position, m_speed * Time.deltaTime);
+                gameObject.transform.position = Vector2.MoveTowards(AttackRangerCenter.transform.position, playerScript.attackPoint.transform.position, m_speed * Time.deltaTime);
 
                 // Flip the dragon if the player is to the left or right
                 if (target.transform.position.x < transform.position.x)
@@ -71,9 +71,8 @@ public class DragonController : MonoBehaviour
                 }
             }
 
-        if (!playerScript.isDead)
+        else if (!playerScript.isDead)
         {
-
             //cooldown for 1 second
             Collider2D[] hits = Physics2D.OverlapCircleAll(AttackRangerCenter.position, attackRange);
             foreach (Collider2D hit in hits)

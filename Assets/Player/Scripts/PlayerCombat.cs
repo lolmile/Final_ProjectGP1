@@ -11,7 +11,7 @@ public class PlayerCombat : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField] AudioSource attackSound;
-    [SerializeField] Transform attackPoint;
+    public Transform attackPoint;
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] int attackDamage = 25;
     [SerializeField] float attackRate = 0.5f;
