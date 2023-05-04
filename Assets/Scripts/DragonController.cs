@@ -9,13 +9,14 @@ public class DragonController : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] GameObject target;
     [SerializeField] float attackRange = 1f;
+    [SerializeField] float followRange = 1f;
     [SerializeField] float attackCooldown = 1f;
-    [SerializeField] GameObject fireballPrefab;
+
     //Get gameobject child firepoint
-    [SerializeField] Transform firePoint;
+
     //Get playercontroller script
 
-
+    //Follow range and then attack range
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +34,6 @@ public class DragonController : MonoBehaviour
     private void DragonMove()
     {
 
-
-
         // Check if target is null
         if (target == null)
         {
@@ -44,47 +43,69 @@ public class DragonController : MonoBehaviour
         {
             // Calculate the distance between the enemy and the player
             float distance = Vector3.Distance(transform.position, target.transform.position);
-            Debug.Log("Distance: " + distance);
 
-            //If the distance is greater than the attack range
-            if (distance > attackRange)
+            // If the distance is greater than the follow range, set the enemy state to idle
+            if (distance > followRange)
             {
-                //Set the enemy state to idle
                 anim.SetInteger("state", 0);
             }
-            else if (distance == attackRange)
+            // If the distance is less than or equal to the follow range but greater than the attack range, set the enemy state to walk
+            else if (distance <= followRange && distance > attackRange)
             {
                 anim.SetInteger("state", 1);
+
+                // Move the dragon towards the player
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, m_speed * Time.deltaTime);
+
+                // Flip the dragon if the player is to the left or right
+                if (target.transform.position.x < transform.position.x)
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+                else if (target.transform.position.x > transform.position.x)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
             }
-            //If the distance is less than the attack range
-            else
+
+            // If the distance is less than or equal to the attack range, set the enemy state to attack
+            else if (distance >= attackRange)
             {
-                //set the enemy to Walk and Attack after 1 second
                 anim.SetInteger("state", 1);
 
                 //cooldown for 1 second
                 attackCooldown -= Time.deltaTime;
-                Debug.Log("attackCooldown: " + attackCooldown);
                 if (attackCooldown <= 0)
                 {
-                    //reset the cooldown
                     attackCooldown = 1f;
-                    Debug.Log("Enemy is cooldown");
-                    //attack the player
                     anim.SetInteger("state", 2);
-                    Debug.Log("Enemy is attacking");
-                    //  Shoot();
 
+
+
+                    //reset the cooldown
+
+
+                    // Attack the player
 
                 }
-
-                //if the player is to the left of the enemy
-                FollowThePlayer();
-
-
+                else
+                {
+                    // Follow the player
+                    anim.SetInteger("state", 1);
+                }
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
     private void FollowThePlayer()
     {
         // if the player is in the attack range of the enemy, the enemy will follow the player
@@ -110,32 +131,10 @@ public class DragonController : MonoBehaviour
                 transform.localScale = new Vector3(1, 1, 1);
             }
         }
+        //if the animation on attck the dragon doesn't move
 
 
 
-    }
-    public void Shoot()
-    {
-        // Instantiate the fireball prefab
-        GameObject fireball = Instantiate(fireballPrefab, firePoint.position, Quaternion.identity);
-
-        // Get the fireball script
-        //let the fire ball start from the position of the fire point
-        fireballPrefab.transform.position = firePoint.position;
-        //let the fire ball start from the position of the fire point
-        FireController fire = fireball.GetComponent<FireController>();
-        fire.SetDirection(transform.localScale.x);
-
-    }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            //attack the player
-            anim.SetInteger("state", 2);
-            Debug.Log("Enemy is attacking");
-            //  Shoot();
-        }
     }
 
 

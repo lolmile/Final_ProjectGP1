@@ -9,53 +9,46 @@ public class Enemy : MonoBehaviour
     private int currentHealth;
     private Animator anim;
     private Collider2D coll;
+    private bool isDead;
 
 
     void Start()
     {
-        currentHealth = maxHealth;
         anim = GetComponent<Animator>();
+        currentHealth = maxHealth;
         coll = GetComponent<Collider2D>();
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        if (isDead)
+            return;
 
-        //PLAY ANIMATION
+        currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
             Die();
-            OnDestroy();
-
         }
         else
         {
-            anim.SetTrigger("Hurt");
+            anim.SetTrigger("hurt");
         }
-
     }
 
     public void Die()
     {
-        //DIE ANIMATION
-        anim.SetTrigger("Death");
 
-        Debug.Log("DEAD");
+        isDead = true;
+        anim.SetTrigger("death");
+        //GetComponent<DragonController>().enabled = false;
+        //GetComponent<MeleeAttack>().enabled = false;
+        Destroy(gameObject, 1f);
+
         killcount.UpKillCount();
     }
 
-    public void OnDestroy()
-    {
-        Destroy(gameObject, .5f);
 
-    }
-
-    public void Disable()
-    {
-        coll.enabled = false;
-    }
 
 
 }
