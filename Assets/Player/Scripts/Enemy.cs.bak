@@ -7,48 +7,70 @@ public class Enemy : MonoBehaviour
     [SerializeField] PlayerCombat killcount;
     public int maxHealth = 100;
     private int currentHealth;
+<<<<<<< HEAD
     private Animator anim;
     private Collider2D coll;
-    private bool isDead;
 
+=======
+    private Collider2D col;
+>>>>>>> 23046fdcd5f3d6afd68d21008a4809370024bd1c
 
     void Start()
     {
-        anim = GetComponent<Animator>();
         currentHealth = maxHealth;
+<<<<<<< HEAD
+        anim = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
+=======
+        col = GetComponent<Collider2D>();
+>>>>>>> 23046fdcd5f3d6afd68d21008a4809370024bd1c
     }
 
     public void TakeDamage(int damage)
     {
-        if (isDead)
-            return;
-
         currentHealth -= damage;
+
+        //PLAY ANIMATION
+
+
 
         if (currentHealth <= 0)
         {
+
             Die();
+            OnDestroy();
+
         }
         else
         {
-            anim.SetTrigger("hurt");
+            anim.SetTrigger("Hurt");
         }
+
     }
 
     public void Die()
     {
+        //DIE ANIMATION
+<<<<<<< HEAD
+        anim.SetTrigger("Death");
 
-        isDead = true;
-        anim.SetTrigger("death");
-        //GetComponent<DragonController>().enabled = false;
-        //GetComponent<MeleeAttack>().enabled = false;
-        Destroy(gameObject, 1f);
-
+=======
+  
+>>>>>>> 23046fdcd5f3d6afd68d21008a4809370024bd1c
+        Debug.Log("DEAD");
         killcount.UpKillCount();
     }
 
+    public void OnDestroy()
+    {
+        Destroy(gameObject, .5f);
 
+    }
+
+    public void Disable()
+    {
+        coll.enabled = false;
+    }
 
 
 }
