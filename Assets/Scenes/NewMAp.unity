@@ -152,6 +152,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1300495551}
+    - target: {fileID: 2239567987514219288, guid: 445577f982d6a264a95f36f7cbe7e16c,
+        type: 3}
+      propertyPath: Player_Movement
+      value: 
+      objectReference: {fileID: 1242899751}
     - target: {fileID: 2239567987514219292, guid: 445577f982d6a264a95f36f7cbe7e16c,
         type: 3}
       propertyPath: m_RootOrder
@@ -250,6 +255,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 434771156}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1242899751 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2239567987514219291, guid: 445577f982d6a264a95f36f7cbe7e16c,
+    type: 3}
+  m_PrefabInstance: {fileID: 434771156}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81882c23a11be7c48b2cac67376bc063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1300495551 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9177425622392805640, guid: f84af0543e2bda14489a5c3036c4b957,

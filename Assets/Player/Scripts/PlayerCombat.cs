@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PlayerCombat : MonoBehaviour
     public int currenthealth;
 
     public healthBar healthBar;
+    public Player_Movement Player_Movement;
 
     private void Start()
     {
@@ -89,6 +91,12 @@ public class PlayerCombat : MonoBehaviour
     {
         currenthealth -= damage;
         healthBar.SetHealth(currenthealth);
+        animator.SetTrigger("PlayerHit");
+
+        if(currenthealth <= 0)
+        {
+            Die();
+        }
     }
 
     void Attack()
@@ -109,9 +117,22 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
+    void Die()
+    {
+        animator.SetTrigger("PlayerDie");
+    }
+
+    public void ReloadScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+
     public void UpKillCount()
     {
         totalKilled++;
         text.text = totalKilled.ToString();
+        attackDamage += 5;
+        Player_Movement.moveSpeed += 0.5f;
     }
 }

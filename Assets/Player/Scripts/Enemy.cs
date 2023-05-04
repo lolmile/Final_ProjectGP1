@@ -41,8 +41,6 @@ public class Enemy : MonoBehaviour
     {
         //DIE ANIMATION
         anim.SetTrigger("Death");
-
-        Debug.Log("DEAD");
         killcount.UpKillCount();
     }
 

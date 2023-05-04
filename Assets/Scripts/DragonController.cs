@@ -33,8 +33,6 @@ public class DragonController : MonoBehaviour
     private void DragonMove()
     {
 
-
-
         // Check if target is null
         if (target == null)
         {
