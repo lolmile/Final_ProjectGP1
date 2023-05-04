@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3325273700705263467
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1480774339199480146, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1480774339199480146, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1480774339199480146, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.1263297
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.1263297
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.1263297
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 52.50682
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -27.149977
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.666897
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843712785324099625, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374716925048802779, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: amountHealed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374716925048802779, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374716925048802779, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: particleSystemPrefab
+      value: 
+      objectReference: {fileID: 8991371454562179931, guid: e4cff7285978cf54bbbe32392d207818,
+        type: 3}
+    - target: {fileID: 7274485565985114635, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
+      propertyPath: m_Name
+      value: HealingPotionWorking
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ea093c84c8a0b349ae48512c6428afd, type: 3}

@@ -22,15 +22,15 @@ public class PlayerCombat : MonoBehaviour
     public int maxHealth = 100;
     public int currenthealth;
 
-    public healthBar healthBar;
+    //public healthBar healthBar;
 
     private void Start()
     {
         movement = GetComponent<Player_Movement>();
         rb= GetComponent<Rigidbody2D>();
 
-        currenthealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        currenthealth = 1;
+        //healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -88,7 +88,7 @@ public class PlayerCombat : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currenthealth -= damage;
-        healthBar.SetHealth(currenthealth);
+      //  healthBar.SetHealth(currenthealth);
     }
 
     void Attack()
@@ -113,5 +113,11 @@ public class PlayerCombat : MonoBehaviour
     {
         totalKilled++;
         text.text = totalKilled.ToString();
+    }
+
+    public void Heal(int healAmount){
+        currenthealth += healAmount;
+        Debug.Log(currenthealth);
+       // healthBar.SetHealth(currenthealth);
     }
 }
