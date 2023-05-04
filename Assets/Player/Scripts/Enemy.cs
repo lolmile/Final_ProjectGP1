@@ -9,20 +9,23 @@ public class Enemy : MonoBehaviour
     private int currentHealth;
     private Animator anim;
     private Collider2D coll;
+    private bool isDead;
 
 
     void Start()
     {
         currentHealth = maxHealth;
         anim = GetComponent<Animator>();
+        currentHealth = maxHealth;
         coll = GetComponent<Collider2D>();
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        if (isDead)
+            return;
 
-        //PLAY ANIMATION
+        currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
@@ -32,7 +35,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            anim.SetTrigger("Hurt");
+            anim.SetTrigger("hurt");
         }
 
     }
@@ -41,6 +44,13 @@ public class Enemy : MonoBehaviour
     {
         //DIE ANIMATION
         anim.SetTrigger("Death");
+
+        isDead = true;
+        anim.SetTrigger("death");
+        //GetComponent<DragonController>().enabled = false;
+        //GetComponent<MeleeAttack>().enabled = false;
+        Destroy(gameObject, 1f);
+
         killcount.UpKillCount();
     }
 
