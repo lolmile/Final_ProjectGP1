@@ -40,11 +40,8 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void Die()
+    private void Die()
     {
-        //DIE ANIMATION
-        anim.SetTrigger("Death");
-
         isDead = true;
         anim.SetTrigger("death");
         //GetComponent<DragonController>().enabled = false;

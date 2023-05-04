@@ -18,6 +18,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     private float nextAttackTime = 0f;
     public LayerMask enemyLayers;
+    public bool isDead = false;
 
     public int totalKilled = 0;
     public int maxHealth = 100;
@@ -101,7 +102,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
@@ -119,6 +120,8 @@ public class PlayerCombat : MonoBehaviour
 
     void Die()
     {
+        isDead = true;
+        gameObject.GetComponent<Collider2D>().enabled = false;
         animator.SetTrigger("PlayerDie");
     }
 
