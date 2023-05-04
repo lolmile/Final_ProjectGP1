@@ -7,8 +7,8 @@ public class HealingScript : MonoBehaviour
     public PlayerCombat playerScript;
 
     public int amountHealed = 10;
-    public float speed = 2.0f;
-    public float height = 1.0f;
+    private float speed = 2.0f;
+    private  float height = 1.0f;
     [SerializeField] GameObject particleSystemPrefab;
     private Vector3 startPosition;
 

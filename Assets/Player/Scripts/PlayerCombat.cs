@@ -37,7 +37,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        healthBar.SetHealth(currenthealth);
         if(Time.time >= nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -119,7 +119,7 @@ public class PlayerCombat : MonoBehaviour
 public void Heal(int healAmount){
         currenthealth += healAmount;
         Debug.Log(currenthealth);
-       // healthBar.SetHealth(currenthealth);
+        healthBar.SetHealth(currenthealth);
     }
     public void UpKillCount()
     {
