@@ -133,6 +133,6 @@ public class PlayerCombat : MonoBehaviour
         totalKilled++;
         text.text = totalKilled.ToString();
         attackDamage += 5;
-        Player_Movement.moveSpeed += 0.5f;
+        Player_Movement.moveSpeed += 0.2f;
     }
 }
