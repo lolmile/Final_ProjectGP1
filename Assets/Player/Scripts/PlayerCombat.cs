@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PlayerCombat : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField] AudioSource attackSound;
-    [SerializeField] Transform attackPoint;
+    public Transform attackPoint;
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] int attackDamage = 25;
     [SerializeField] float attackRate = 0.5f;
@@ -21,6 +22,7 @@ public class PlayerCombat : MonoBehaviour
     public int totalKilled = 0;
     public int maxHealth = 100;
     public int currenthealth;
+    public bool isDead = false;
 
     public healthBar healthBar;
 	public Player_Movement Player_Movement;
@@ -116,7 +118,14 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-public void Heal(int healAmount){
+    private void Die()
+    {
+        animator.SetTrigger("PlayerDie");
+        isDead = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Heal(int healAmount)
+    {
         currenthealth += healAmount;
         Debug.Log(currenthealth);
         healthBar.SetHealth(currenthealth);
@@ -125,5 +134,10 @@ public void Heal(int healAmount){
     {
         totalKilled++;
         text.text = totalKilled.ToString();
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

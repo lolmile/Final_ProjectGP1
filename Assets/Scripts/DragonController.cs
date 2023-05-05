@@ -13,7 +13,7 @@ public class DragonController : MonoBehaviour
     [SerializeField] float attackNext = 0f;
     public int damage = 10;
     private GameObject target;
-    private SpriteRenderer sprite;
+    SpriteRenderer sprite;
     Transform AttackRangerCenter;
 
     [SerializeField] PlayerCombat playerScript;
