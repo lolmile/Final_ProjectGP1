@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WizardController : MonoBehaviour
 {
+
     [SerializeField] float m_speed = 4.0f;
     private Animator anim;
     private Rigidbody2D rb;
@@ -11,6 +12,11 @@ public class WizardController : MonoBehaviour
     [SerializeField] float attackRange = 1f;
     [SerializeField] float followRange = 1f;
     [SerializeField] float attackCooldown = 1f;
+    [SerializeField] float attackNext = 0f;
+    public int damage = 10;
+
+
+    [SerializeField] PlayerCombat playerScript;
 
     //Get gameobject child firepoint
 
@@ -28,11 +34,16 @@ public class WizardController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.time > attackNext)
+        {
+            // attackNext = Time.time + attackCooldown;
+            //  playerScript.TakeDamage(damage);
+            DragonMove();
+        }
 
 
-        Move();
     }
-    private void Move()
+    private void DragonMove()
     {
 
         // Check if target is null
@@ -48,17 +59,12 @@ public class WizardController : MonoBehaviour
             // If the distance is greater than the follow range, set the enemy state to idle
             if (distance > followRange)
             {
-                //Debug.Log("distance > followRange");
                 anim.SetInteger("BossState", 0);
-                //Debug.Log("Idle");
             }
             // If the distance is less than or equal to the follow range but greater than the attack range, set the enemy state to walk
             else if (distance <= followRange && distance > attackRange)
             {
-                //Debug.Log("distance <= followRange && distance > attackRange");
-
                 anim.SetInteger("BossState", 1);
-                //Debug.Log("Walk");
 
                 // Move the dragon towards the player
                 transform.position = Vector2.MoveTowards(transform.position, target.transform.position, m_speed * Time.deltaTime);
@@ -77,76 +83,22 @@ public class WizardController : MonoBehaviour
             // If the distance is less than or equal to the attack range, set the enemy state to attack
             else if (distance <= attackRange)
             {
-                //Debug.Log("distance <= attackRange");
-                anim.SetInteger("BossState", 1);
-                // Debug.Log("Run");
+                // anim.SetInteger("state", 1);
 
                 //cooldown for 1 second
-                attackCooldown -= Time.deltaTime;
-                Debug.Log(attackCooldown);
-                if (attackCooldown <= 1)
-                {
-                    attackCooldown = 1f;
-                    anim.SetInteger("BossState", 2);
-                    ////Debug.Log("Attack");
 
 
 
-                    //reset the cooldown
+                attackCooldown = 1f;
+                anim.SetInteger("BossState", 2);
+                playerScript.TakeDamage(damage);
 
+                attackNext = Time.time + attackCooldown;
 
-                    // Attack the player
-
-                }
-                else
-                {
-                    // Follow the player
-                    anim.SetInteger("BossState", 1);
-                }
 
             }
+
         }
     }
-
-
-
-
-
-
-
-
-
-
-    private void FollowThePlayer()
-    {
-        // if the player is in the attack range of the enemy, the enemy will follow the player
-        if (Vector3.Distance(transform.position, target.transform.position) <= attackRange)
-        {
-            //if the player is to the left of the enemy
-            if (target.transform.position.x < transform.position.x)
-            {
-                //move the enemy to the left
-
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, m_speed * Time.deltaTime);
-                //if the is player is up of the enemy the enemy will move up to the player position
-
-                //flip the enemy to the left
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            //if the player is to the right of the enemy
-            else if (target.transform.position.x > transform.position.x)
-            {
-                //move the enemy to the right
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, m_speed * Time.deltaTime);
-                //flip the enemy to the right
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-        }
-        //if the animation on attck the dragon doesn't move
-
-
-
-    }
-
-
 }
+
