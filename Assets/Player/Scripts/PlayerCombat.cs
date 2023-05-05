@@ -11,6 +11,8 @@ public class PlayerCombat : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField] AudioSource attackSound;
+    [SerializeField] AudioSource hitSound;
+    [SerializeField] AudioSource dieSound;
     public Transform attackPoint;
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] int attackDamage = 25;
@@ -23,6 +25,7 @@ public class PlayerCombat : MonoBehaviour
     public int maxHealth = 100;
     public int currenthealth;
     public bool isDead = false;
+    public bool isAttacking = false;
 
     public healthBar healthBar;
 	public Player_Movement Player_Movement;
@@ -90,11 +93,15 @@ public class PlayerCombat : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        hitSound.Play();
         currenthealth -= damage;
         healthBar.SetHealth(currenthealth);
-	animator.SetTrigger("PlayerHit");
+        if (!isAttacking)
+        {
+            animator.SetTrigger("PlayerHit");
+        }
 
-        if(currenthealth <= 0)
+        if (currenthealth <= 0)
         {
             Die();
         }
@@ -120,9 +127,9 @@ public class PlayerCombat : MonoBehaviour
 
     private void Die()
     {
+        dieSound.Play();
         animator.SetTrigger("PlayerDie");
         isDead = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Heal(int healAmount)
     {
@@ -134,8 +141,19 @@ public class PlayerCombat : MonoBehaviour
     {
         totalKilled++;
         text.text = totalKilled.ToString();
+        maxHealth += 10;
+        attackDamage += 5;
+        Player_Movement.moveSpeed += 0.5f;
     }
 
+    public void IsAttacking()
+    {
+        isAttacking = true;
+    }
+    public void IsNotAttacking()
+    {
+        isAttacking = false;
+    }
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

@@ -81,6 +81,21 @@ URL: https://assetstore.unity.com/packages/audio/sound-fx/rpg-essentials-sound-e
 
 Author: leohpaz
 
+-----
+
+Name: Free Sound Effects Pack
+
+URL: https://assetstore.unity.com/packages/audio/sound-fx/free-sound-effects-pack-155776
+
+Author: Olivier Girardot
+
+-----
+
+Name: Attack Jump & Hit Damage Human Sounds
+
+URL: https://assetstore.unity.com/packages/audio/sound-fx/voices/attack-jump-hit-damage-human-sounds-32785
+
+Author: Rocklynn Productions
 
 
 

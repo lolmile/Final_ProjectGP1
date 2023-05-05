@@ -5,10 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] PlayerCombat killcount;
+    [SerializeField] AudioSource hitSound;
+    [SerializeField] AudioSource dieSound;
+
     public int maxHealth = 100;
     private int currentHealth;
     private Animator anim;
     private Collider2D coll;
+    private Rigidbody2D rb;
     private bool isDead;
 
 
@@ -18,6 +22,7 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         coll = GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void TakeDamage(int damage)
@@ -30,12 +35,11 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
-            OnDestroy();
-
         }
         else
         {
             anim.SetTrigger("hurt");
+            hitSound.Play();
         }
 
     }
@@ -43,23 +47,21 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         isDead = true;
+        dieSound.Play();
         anim.SetTrigger("death");
-        //GetComponent<DragonController>().enabled = false;
-        //GetComponent<MeleeAttack>().enabled = false;
-        Destroy(gameObject, 1f);
-
+       
         killcount.UpKillCount();
     }
 
     public void OnDestroy()
     {
-        Destroy(gameObject, .5f);
-
+        Destroy(gameObject);
     }
 
     public void Disable()
     {
         coll.enabled = false;
+        rb.bodyType = RigidbodyType2D.Static;
     }
 
 

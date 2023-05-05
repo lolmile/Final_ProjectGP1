@@ -8,6 +8,8 @@ public class BoostingScript : MonoBehaviour
     private TrailRenderer trail;
     [SerializeField] float boostCooldown = 1f;
     [SerializeField] float nextBosst = 0f;
+    [SerializeField] AudioSource boostSound;
+
 
     private float starting;
      private float speed = 2.0f;
@@ -50,10 +52,9 @@ public class BoostingScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
-
-
         if (other.gameObject.CompareTag("Player"))
         {
+            boostSound.Play();
             sprite.enabled = false;
 
             playerScript.moveSpeed = 15f;

@@ -11,10 +11,11 @@ public class DragonController : MonoBehaviour
     [SerializeField] float followRange = 1f;
     [SerializeField] float attackCooldown = 0.5f;
     [SerializeField] float attackNext = 0f;
+    [SerializeField] AudioSource attackSound;
     public int damage = 10;
     private GameObject target;
     SpriteRenderer sprite;
-    Transform AttackRangerCenter;
+    Transform AttackRangeCenter;
 
     [SerializeField] PlayerCombat playerScript;
 
@@ -29,7 +30,7 @@ public class DragonController : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
-        AttackRangerCenter = GetComponentInChildren<Transform>();
+        AttackRangeCenter = GetComponentInChildren<Transform>();
         sprite= GetComponent<SpriteRenderer>();
     }
 
@@ -44,37 +45,37 @@ public class DragonController : MonoBehaviour
     private void DragonMove()
     {
 
-            // Calculate the distance between the enemy and the player
-            float distance = Vector3.Distance(AttackRangerCenter.position, target.transform.position);
+        // Calculate the distance between the enemy and the player
+        float distance = Vector3.Distance(AttackRangeCenter.localPosition, target.transform.position);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(AttackRangeCenter.transform.localPosition, attackRange);
 
-            // If the distance is greater than the follow range, set the enemy state to idle
-            if (distance > followRange)
+
+        // If the distance is greater than the follow range, set the enemy state to idle
+        if (distance > followRange)
             {
                 anim.SetInteger("state", 0);
             }
-            // If the distance is less than or equal to the follow range but greater than the attack range, set the enemy state to walk
-            else if (distance < followRange && distance > attackRange)
-            {
-                anim.SetInteger("state", 1);
-
-                // Move the dragon towards the player
-                gameObject.transform.position = Vector2.MoveTowards(AttackRangerCenter.transform.position, playerScript.attackPoint.transform.position, m_speed * Time.deltaTime);
-
-                // Flip the dragon if the player is to the left or right
-                if (target.transform.position.x < transform.position.x)
-                {
-                    sprite.flipX = true;
-                }
-                else if (target.transform.position.x > transform.position.x)
-                {
-                    sprite.flipX = false;
-                }
-            }
-
-        else if (!playerScript.isDead)
+        // If the distance is less than or equal to the follow range but greater than the attack range, set the enemy state to walk
+        else if (distance < followRange && distance > attackRange)
         {
-            //cooldown for 1 second
-            Collider2D[] hits = Physics2D.OverlapCircleAll(AttackRangerCenter.position, attackRange);
+            anim.SetInteger("state", 1);
+
+            // Move the dragon towards the player
+            gameObject.transform.position = Vector2.MoveTowards(AttackRangeCenter.transform.position, playerScript.attackPoint.transform.position, m_speed * Time.deltaTime);
+
+            // Flip the dragon if the player is to the left or right
+            if (target.transform.position.x < transform.position.x)
+            {
+                sprite.flipX = true;
+            }
+            else if (target.transform.position.x > transform.position.x)
+            {
+                sprite.flipX = false;
+            }
+        }
+
+        if (!playerScript.isDead && hits.Length > 0)
+        {
             foreach (Collider2D hit in hits)
             {
                 if (hit.gameObject.CompareTag("Player"))
@@ -82,14 +83,20 @@ public class DragonController : MonoBehaviour
                         // Attack the player
                         anim.SetInteger("state", 2);
                         playerScript.TakeDamage(damage);
+                        attackSound.Play();
                         attackNext = Time.time + attackCooldown;
                         break;
                 }
             }
         }
     }
-
-
+    private void OnDrawGizmosSelected()
+    {
+        if (AttackRangeCenter != null)
+        {
+            Gizmos.DrawWireSphere(AttackRangeCenter.position, attackRange);
+        }
+    }
     private void FollowThePlayer()
     {
         // if the player is in the attack range of the enemy, the enemy will follow the player
