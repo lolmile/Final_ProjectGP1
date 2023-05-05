@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     private Animator anim;
     private Collider2D coll;
     private Rigidbody2D rb;
-    private bool isDead;
+    public bool isDead;
 
 
     void Start()
@@ -27,21 +27,20 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (isDead)
-            return;
-
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
+        if (!isDead)
         {
-            Die();
-        }
-        else
-        {
-            anim.SetTrigger("hurt");
-            hitSound.Play();
-        }
+            currentHealth -= damage;
 
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                anim.SetTrigger("hurt");
+                hitSound.Play();
+            }
+        }
     }
 
     private void Die()

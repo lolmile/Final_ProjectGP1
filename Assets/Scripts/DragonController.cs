@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DragonController : MonoBehaviour
-{
-    [SerializeField] float m_speed = 4.0f;
+{    
     private Animator anim;
     private Rigidbody2D rb;
+    private Enemy enemyScript;
+
+    [SerializeField] float m_speed = 4.0f;
     [SerializeField] float attackRange = 1f;
     [SerializeField] float followRange = 1f;
     [SerializeField] float attackCooldown = 0.5f;
@@ -32,6 +34,7 @@ public class DragonController : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player");
         AttackRangeCenter = GetComponentInChildren<Transform>();
         sprite= GetComponent<SpriteRenderer>();
+        enemyScript = GetComponent<Enemy>();
     }
 
     // Update is called once per frame
@@ -74,7 +77,7 @@ public class DragonController : MonoBehaviour
             }
         }
 
-        if (!playerScript.isDead && hits.Length > 0)
+        if (!playerScript.isDead && hits.Length > 0 && !enemyScript.isDead)
         {
             foreach (Collider2D hit in hits)
             {

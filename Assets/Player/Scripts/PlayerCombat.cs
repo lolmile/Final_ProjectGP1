@@ -26,6 +26,7 @@ public class PlayerCombat : MonoBehaviour
     public int currenthealth;
     public bool isDead = false;
     public bool isAttacking = false;
+    public bool isAttacked = false;
 
     public healthBar healthBar;
 	public Player_Movement Player_Movement;
@@ -109,12 +110,16 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-        foreach (Collider2D enemy in hitEnemies)
+        if(!isAttacked)
         {
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            }
         }
+
     }
 
     private void OnDrawGizmosSelected()
@@ -154,6 +159,13 @@ public class PlayerCombat : MonoBehaviour
     {
         isAttacking = false;
     }
+
+    public void IsAttacked()
+    { isAttacked = true; }
+    public void IsNotAttacked()
+    { isAttacked = false; }
+
+
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
