@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class HealingScript : MonoBehaviour
 {
-    public float speed = 2.0f;
-    public float height = 1.0f;
+    public PlayerCombat playerScript;
+
+    public int amountHealed = 10;
+    private float speed = 2.0f;
+    private  float height = 1.0f;
     [SerializeField] GameObject particleSystemPrefab;
     private Vector3 startPosition;
+
+
+private void Awake()
+    {
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>();
+    }
 
     void Start()
     {
@@ -22,11 +31,15 @@ public class HealingScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.gameObject.CompareTag("Player"))
         {
+            
+            playerScript.Heal(amountHealed);
             Instantiate(particleSystemPrefab, transform.position, Quaternion.identity);
                     
             Destroy(gameObject);
+
             
         }
     }

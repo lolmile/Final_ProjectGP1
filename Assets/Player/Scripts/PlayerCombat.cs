@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PlayerCombat : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField] AudioSource attackSound;
-    [SerializeField] Transform attackPoint;
+    public Transform attackPoint;
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] int attackDamage = 25;
     [SerializeField] float attackRate = 0.5f;
@@ -21,8 +22,10 @@ public class PlayerCombat : MonoBehaviour
     public int totalKilled = 0;
     public int maxHealth = 100;
     public int currenthealth;
+    public bool isDead = false;
 
     public healthBar healthBar;
+	public Player_Movement Player_Movement;
 
     private void Start()
     {
@@ -36,7 +39,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        healthBar.SetHealth(currenthealth);
         if(Time.time >= nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -89,6 +92,12 @@ public class PlayerCombat : MonoBehaviour
     {
         currenthealth -= damage;
         healthBar.SetHealth(currenthealth);
+	animator.SetTrigger("PlayerHit");
+
+        if(currenthealth <= 0)
+        {
+            Die();
+        }
     }
 
     void Attack()
@@ -109,9 +118,26 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
+    private void Die()
+    {
+        animator.SetTrigger("PlayerDie");
+        isDead = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Heal(int healAmount)
+    {
+        currenthealth += healAmount;
+        Debug.Log(currenthealth);
+        healthBar.SetHealth(currenthealth);
+    }
     public void UpKillCount()
     {
         totalKilled++;
         text.text = totalKilled.ToString();
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

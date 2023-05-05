@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6374716925048802779}
   - component: {fileID: 7691206735230737423}
   m_Layer: 0
-  m_Name: HealingPotion
+  m_Name: DONT USE firstHealingPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

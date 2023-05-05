@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5046359860379116372}
   - component: {fileID: 4954326263716673217}
   m_Layer: 0
-  m_Name: BoostPotion
+  m_Name: DONT USE firstBoostPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
