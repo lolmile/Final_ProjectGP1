@@ -137,6 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
         type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 2107684825}
+    - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
+        type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 1242899754}
@@ -354,6 +359,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
         type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 2081709950}
+    - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
+        type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 1242899754}
@@ -492,6 +502,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoostPotionWorking Variant (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8525027318893133216, guid: 1a4e027c7145e2a4fa26d83cfac74abb,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a4e027c7145e2a4fa26d83cfac74abb, type: 3}
 --- !u!4 &203332881 stripped
@@ -512,6 +527,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealingPotionWorking Variant (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
+        type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 2081709950}
     - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
         type: 3}
       propertyPath: playerScript
@@ -870,27 +890,27 @@ PrefabInstance:
     - target: {fileID: 2239567987514219292, guid: 445577f982d6a264a95f36f7cbe7e16c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.74
+      value: 2.17
       objectReference: {fileID: 0}
     - target: {fileID: 2239567987514219292, guid: 445577f982d6a264a95f36f7cbe7e16c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.74
+      value: 2.17
       objectReference: {fileID: 0}
     - target: {fileID: 2239567987514219292, guid: 445577f982d6a264a95f36f7cbe7e16c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.74
+      value: 2.17
       objectReference: {fileID: 0}
     - target: {fileID: 2239567987514219292, guid: 445577f982d6a264a95f36f7cbe7e16c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 85.2
+      value: 12.3
       objectReference: {fileID: 0}
     - target: {fileID: 2239567987514219292, guid: 445577f982d6a264a95f36f7cbe7e16c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.9
+      value: -26
       objectReference: {fileID: 0}
     - target: {fileID: 2239567987514219292, guid: 445577f982d6a264a95f36f7cbe7e16c,
         type: 3}
@@ -1086,6 +1106,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoostPotionWorking Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8525027318893133216, guid: 1a4e027c7145e2a4fa26d83cfac74abb,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a4e027c7145e2a4fa26d83cfac74abb, type: 3}
 --- !u!4 &442619428 stripped
@@ -1106,6 +1131,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealingPotionWorking Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
+        type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 2081709950}
     - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
         type: 3}
       propertyPath: playerScript
@@ -1580,6 +1610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
         type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 2081709950}
+    - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
+        type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 1242899754}
@@ -1658,6 +1693,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealingPotionWorking Variant (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
+        type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 2081709950}
     - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
         type: 3}
       propertyPath: playerScript
@@ -1803,6 +1843,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BoostPotionWorking Variant (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525027318893133216, guid: 1a4e027c7145e2a4fa26d83cfac74abb,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a4e027c7145e2a4fa26d83cfac74abb, type: 3}
@@ -2018,6 +2063,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3487403468971172097, guid: c84776438b4594f46badd6a0d72b372c,
     type: 3}
   m_PrefabInstance: {fileID: 968345583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1000696475 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1564032927610880896, guid: 2918d182dd82555418dba33b87589e3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3145943925595003807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1000696476 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5737237621575627548, guid: 2918d182dd82555418dba33b87589e3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3145943925595003807}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1076299712 stripped
 Transform:
@@ -2947,6 +3004,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoostPotionWorking Variant (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8525027318893133216, guid: 1a4e027c7145e2a4fa26d83cfac74abb,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a4e027c7145e2a4fa26d83cfac74abb, type: 3}
 --- !u!4 &1300867501 stripped
@@ -2967,6 +3029,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealingPotionWorking Variant (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
+        type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 2081709950}
     - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
         type: 3}
       propertyPath: playerScript
@@ -3106,6 +3173,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BoostPotionWorking Variant (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525027318893133216, guid: 1a4e027c7145e2a4fa26d83cfac74abb,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a4e027c7145e2a4fa26d83cfac74abb, type: 3}
@@ -3563,6 +3635,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoostPotionWorking Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8525027318893133216, guid: 1a4e027c7145e2a4fa26d83cfac74abb,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a4e027c7145e2a4fa26d83cfac74abb, type: 3}
 --- !u!4 &1647001435 stripped
@@ -3583,6 +3660,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealingPotionWorking Variant (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
+        type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 2081709950}
     - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
         type: 3}
       propertyPath: playerScript
@@ -3723,6 +3805,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoostPotionWorking Variant (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8525027318893133216, guid: 1a4e027c7145e2a4fa26d83cfac74abb,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a4e027c7145e2a4fa26d83cfac74abb, type: 3}
 --- !u!1 &1868792207
@@ -3775,6 +3862,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealingPotionWorking Variant (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
+        type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 2081709950}
     - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
         type: 3}
       propertyPath: playerScript
@@ -3857,6 +3949,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
         type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 2081709950}
+    - target: {fileID: 8525935957730923184, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
+        type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 1242899754}
@@ -3922,6 +4019,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9168404157111637826, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
     type: 3}
   m_PrefabInstance: {fileID: 2081709948}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2081709950 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8543056917881826944, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2081709948}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2107684825 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8543056917881826944, guid: 6a780d31285547a4ea8bcfcdfc24d9e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 22383227}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2142938003
 PrefabInstance:
@@ -4202,6 +4311,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 307281911041947272, guid: 2918d182dd82555418dba33b87589e3b,
         type: 3}
+      propertyPath: dieSound
+      value: 
+      objectReference: {fileID: 1000696475}
+    - target: {fileID: 307281911041947272, guid: 2918d182dd82555418dba33b87589e3b,
+        type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 1000696476}
+    - target: {fileID: 307281911041947272, guid: 2918d182dd82555418dba33b87589e3b,
+        type: 3}
       propertyPath: killcount
       value: 
       objectReference: {fileID: 1242899754}
@@ -4247,12 +4366,12 @@ PrefabInstance:
     - target: {fileID: 9177425621591394173, guid: f84af0543e2bda14489a5c3036c4b957,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 64.130356
+      value: -8.769641
       objectReference: {fileID: 0}
     - target: {fileID: 9177425621591394173, guid: f84af0543e2bda14489a5c3036c4b957,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0410285
+      value: -20.14103
       objectReference: {fileID: 0}
     - target: {fileID: 9177425621593767844, guid: f84af0543e2bda14489a5c3036c4b957,
         type: 3}
@@ -4322,12 +4441,12 @@ PrefabInstance:
     - target: {fileID: 9177425622538897315, guid: f84af0543e2bda14489a5c3036c4b957,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 64.0969
+      value: -2.2126198
       objectReference: {fileID: 0}
     - target: {fileID: 9177425622538897315, guid: f84af0543e2bda14489a5c3036c4b957,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.163868
+      value: -20.142437
       objectReference: {fileID: 0}
     - target: {fileID: 9177425622920811083, guid: f84af0543e2bda14489a5c3036c4b957,
         type: 3}
