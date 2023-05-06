@@ -81,7 +81,47 @@ URL: https://assetstore.unity.com/packages/audio/sound-fx/rpg-essentials-sound-e
 
 Author: leohpaz
 
+-----
 
+Name: Free Sound Effects Pack
+
+URL: https://assetstore.unity.com/packages/audio/sound-fx/free-sound-effects-pack-155776
+
+Author: Olivier Girardot
+
+-----
+
+Name: Attack Jump & Hit Damage Human Sounds
+
+URL: https://assetstore.unity.com/packages/audio/sound-fx/voices/attack-jump-hit-damage-human-sounds-32785
+
+Author: Rocklynn Productions
+
+
+-----
+
+Name: Cactus
+
+URL: https://gpway.itch.io/cactus
+
+Author: gpway
+
+-----
+
+Name: RPG World Houses and Interiors 
+
+URL: https://assetstore.unity.com/packages/2d/environments/rpg-worlds-houses-and-interiors-168422
+
+Author: Szadi Art.
+
+
+-----
+
+Name: RPG World Houses and Interiors 
+
+URL: https://assetstore.unity.com/packages/2d/environments/2d-environment-starter-pack-237152
+
+Author: Void Sora 
 
 
 

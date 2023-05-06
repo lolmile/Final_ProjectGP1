@@ -9,7 +9,11 @@ public class HealingScript : MonoBehaviour
     public int amountHealed = 10;
     private float speed = 2.0f;
     private  float height = 1.0f;
+    private SpriteRenderer image;
+    private Collider2D col;
     [SerializeField] GameObject particleSystemPrefab;
+    [SerializeField] AudioSource healSound;
+
     private Vector3 startPosition;
 
 
@@ -21,6 +25,8 @@ private void Awake()
     void Start()
     {
         startPosition = transform.position;
+        image = GetComponent<SpriteRenderer>();
+        col = GetComponent<Collider2D>();
     }
 
     void Update()
@@ -30,17 +36,17 @@ private void Awake()
     }
 
     void OnTriggerEnter2D(Collider2D other)
-    {
-        
+    {   
         if (other.gameObject.CompareTag("Player"))
         {
-            
+            healSound.Play();
             playerScript.Heal(amountHealed);
             Instantiate(particleSystemPrefab, transform.position, Quaternion.identity);
-                    
-            Destroy(gameObject);
+            image.sprite = null;
 
-            
+            col.enabled= false;
+                    
+            Destroy(gameObject, 2f);
         }
     }
 }

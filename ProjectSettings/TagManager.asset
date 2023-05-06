@@ -8,6 +8,7 @@ TagManager:
   - princess
   - EnemySensor
   - Boss
+  - Boost
   layers:
   - Default
   - TransparentFX
