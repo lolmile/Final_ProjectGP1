@@ -10,7 +10,7 @@ public class BoostingScript : MonoBehaviour
     [SerializeField] float nextBosst = 0f;
     [SerializeField] AudioSource boostSound;
 
-
+    private BoxCollider2D boxCollider2D;
     private float starting;
      private float speed = 2.0f;
 
@@ -26,6 +26,7 @@ public class BoostingScript : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Movement>();
         trail = GameObject.FindGameObjectWithTag("Player").GetComponent<TrailRenderer>();
+        boxCollider2D = GameObject.FindGameObjectWithTag("Boost").GetComponent<BoxCollider2D>();
     }
 
     void Start()
@@ -42,9 +43,12 @@ public class BoostingScript : MonoBehaviour
         {
             playerScript.moveSpeed = 7f;
             trail.enabled = false;
+            sprite.enabled = true;
+            boxCollider2D.enabled = true;
 
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
+        //trail.enabled = true;
         }
         float newY = Mathf.Sin(Time.time * speed) * height + startPosition.y;
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
@@ -56,6 +60,7 @@ public class BoostingScript : MonoBehaviour
         {
             boostSound.Play();
             sprite.enabled = false;
+            boxCollider2D.enabled = false;
 
             playerScript.moveSpeed = 15f;
 

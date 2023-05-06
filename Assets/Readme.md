@@ -98,6 +98,31 @@ URL: https://assetstore.unity.com/packages/audio/sound-fx/voices/attack-jump-hit
 Author: Rocklynn Productions
 
 
+-----
+
+Name: Cactus
+
+URL: https://gpway.itch.io/cactus
+
+Author: gpway
+
+-----
+
+Name: RPG World Houses and Interiors 
+
+URL: https://assetstore.unity.com/packages/2d/environments/rpg-worlds-houses-and-interiors-168422
+
+Author: Szadi Art.
+
+
+-----
+
+Name: RPG World Houses and Interiors 
+
+URL: https://assetstore.unity.com/packages/2d/environments/2d-environment-starter-pack-237152
+
+Author: Void Sora 
+
 
 
 
