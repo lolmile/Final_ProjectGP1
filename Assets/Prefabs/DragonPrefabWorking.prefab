@@ -178,8 +178,6 @@ MonoBehaviour:
   attackCooldown: 2
   attackNext: 0
   attackSound: {fileID: 1129814175778377300}
-  hitSound: {fileID: 5737237621575627548}
-  dieSound: {fileID: 1564032927610880896}
   damage: 10
   playerScript: {fileID: 0}
 --- !u!114 &307281911041947272
@@ -195,7 +193,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killcount: {fileID: 0}
+  hitSound: {fileID: 0}
+  dieSound: {fileID: 0}
   maxHealth: 100
+  isDead: 0
 --- !u!82 &1129814175778377300
 AudioSource:
   m_ObjectHideFlags: 0
