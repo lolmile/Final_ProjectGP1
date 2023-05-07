@@ -94,6 +94,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6374716925048802779, guid: 2ea093c84c8a0b349ae48512c6428afd,
         type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 8543056917881826944}
+    - target: {fileID: 6374716925048802779, guid: 2ea093c84c8a0b349ae48512c6428afd,
+        type: 3}
       propertyPath: amountHealed
       value: 10
       objectReference: {fileID: 0}
@@ -111,7 +116,13 @@ PrefabInstance:
     - target: {fileID: 7274485565985114635, guid: 2ea093c84c8a0b349ae48512c6428afd,
         type: 3}
       propertyPath: m_Name
-      value: HealingPotionWorking
+      value: HealingPotionWorking Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ea093c84c8a0b349ae48512c6428afd, type: 3}
+--- !u!82 &8543056917881826944 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6389121129540645355, guid: 2ea093c84c8a0b349ae48512c6428afd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3325273700705263467}
+  m_PrefabAsset: {fileID: 0}

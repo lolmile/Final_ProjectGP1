@@ -77,7 +77,7 @@ public class DragonController : MonoBehaviour
             }
         }
 
-        if (!playerScript.isDead && hits.Length > 0 && !enemyScript.isDead)
+        if (!playerScript.isDead && hits.Length > 0 && !enemyScript.isDead && !enemyScript.isAttacked)
         {
             foreach (Collider2D hit in hits)
             {
@@ -100,36 +100,4 @@ public class DragonController : MonoBehaviour
             Gizmos.DrawWireSphere(AttackRangeCenter.position, attackRange);
         }
     }
-    private void FollowThePlayer()
-    {
-        // if the player is in the attack range of the enemy, the enemy will follow the player
-        if (Vector3.Distance(transform.position, target.transform.position) <= attackRange)
-        {
-            //if the player is to the left of the enemy
-            if (target.transform.position.x < transform.position.x)
-            {
-                //move the enemy to the left
-
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, m_speed * Time.deltaTime);
-                //if the is player is up of the enemy the enemy will move up to the player position
-
-                //flip the enemy to the left
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            //if the player is to the right of the enemy
-            else if (target.transform.position.x > transform.position.x)
-            {
-                //move the enemy to the right
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, m_speed * Time.deltaTime);
-                //flip the enemy to the right
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-        }
-        //if the animation on attck the dragon doesn't move
-
-
-
-    }
-
-
 }

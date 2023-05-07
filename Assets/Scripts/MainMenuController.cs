@@ -8,7 +8,7 @@ public class MainMenuController : MonoBehaviour
     // Start is called before the first frame update
   public void clickPlayButton()
     {
-        SceneManager.LoadScene("TestScene");
+        SceneManager.LoadScene("NewMAp");
     }
     public void ClickQuitButton()
     {

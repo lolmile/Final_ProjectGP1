@@ -18,6 +18,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] int attackDamage = 25;
     [SerializeField] float attackRate = 0.5f;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] GameObject RetryMenu;
+
     private float nextAttackTime = 0f;
     public LayerMask enemyLayers;
 
@@ -110,7 +112,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
     {
-        if(!isAttacked)
+        if(!isAttacked && !isDead)
         {
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
@@ -132,14 +134,16 @@ public class PlayerCombat : MonoBehaviour
 
     private void Die()
     {
+        rb.velocity = Vector3.zero;
         dieSound.Play();
         animator.SetTrigger("PlayerDie");
         isDead = true;
+        RetryMenu.SetActive(true);
     }
+
     public void Heal(int healAmount)
     {
         currenthealth += healAmount;
-        Debug.Log(currenthealth);
         healthBar.SetHealth(currenthealth);
     }
     public void UpKillCount()
@@ -165,9 +169,4 @@ public class PlayerCombat : MonoBehaviour
     public void IsNotAttacked()
     { isAttacked = false; }
 
-
-    public void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 }

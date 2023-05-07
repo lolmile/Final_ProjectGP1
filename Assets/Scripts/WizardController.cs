@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class WizardController : MonoBehaviour
 {
-
-    [SerializeField] float m_speed = 4.0f;
     private Animator anim;
     private Rigidbody2D rb;
-    [SerializeField] GameObject target;
+    private Enemy enemyScript;
+
+    [SerializeField] float m_speed = 4.0f;
     [SerializeField] float attackRange = 1f;
     [SerializeField] float followRange = 1f;
-    [SerializeField] float attackCooldown = 1f;
+    [SerializeField] float attackCooldown = 0.5f;
     [SerializeField] float attackNext = 0f;
+    [SerializeField] AudioSource attackSound;
+    [SerializeField] Collider2D princessPrison;
+    [SerializeField] GameObject prison;
+    [SerializeField] GameObject target;
+
     public int damage = 10;
+    SpriteRenderer sprite;
+    private Transform AttackRangeCenter;
+    public bool isAttacking = false;
+    public bool isAttacked = false;
 
 
     [SerializeField] PlayerCombat playerScript;
@@ -28,77 +37,92 @@ public class WizardController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Player");
+        AttackRangeCenter = transform.Find("AttackRangeCenter");
+        sprite = GetComponent<SpriteRenderer>();
+        enemyScript = GetComponent<Enemy>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > attackNext)
+        WizardMove();
+
+        if (enemyScript.isDead)
         {
-            // attackNext = Time.time + attackCooldown;
-            //  playerScript.TakeDamage(damage);
-            DragonMove();
+            princessPrison.enabled = false;
+            prison.SetActive(false);
+            target = null;
         }
-
-
     }
-    private void DragonMove()
+    private void WizardMove()
     {
-
-        // Check if target is null
-        if (target == null)
-        {
-            target = GameObject.FindGameObjectWithTag("Player");
-        }
-        else
+        if (!enemyScript.isDead)
         {
             // Calculate the distance between the enemy and the player
-            float distance = Vector3.Distance(transform.position, target.transform.position);
+            float distance = Vector3.Distance(AttackRangeCenter.position, target.transform.position);
+
+            Collider2D[] hits = Physics2D.OverlapCircleAll(AttackRangeCenter.position, attackRange);
 
             // If the distance is greater than the follow range, set the enemy state to idle
-            if (distance > followRange)
+            if (distance > followRange || distance < attackRange)
             {
                 anim.SetInteger("BossState", 0);
             }
             // If the distance is less than or equal to the follow range but greater than the attack range, set the enemy state to walk
-            else if (distance <= followRange && distance > attackRange)
+            else if (distance < followRange && distance > attackRange && hits.Length != 0)
             {
                 anim.SetInteger("BossState", 1);
 
                 // Move the dragon towards the player
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, m_speed * Time.deltaTime);
+                gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, playerScript.attackPoint.transform.position, m_speed * Time.deltaTime);
 
                 // Flip the dragon if the player is to the left or right
                 if (target.transform.position.x < transform.position.x)
                 {
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    sprite.flipX = true;
                 }
                 else if (target.transform.position.x > transform.position.x)
                 {
-                    transform.localScale = new Vector3(1, 1, 1);
+                    sprite.flipX = false;
                 }
             }
 
-            // If the distance is less than or equal to the attack range, set the enemy state to attack
-            else if (distance <= attackRange)
+            if (!playerScript.isDead && hits.Length > 0 && !enemyScript.isDead && !enemyScript.isAttacked)
             {
-                // anim.SetInteger("state", 1);
-
-                //cooldown for 1 second
-
-
-
-                attackCooldown = 1f;
-                anim.SetInteger("BossState", 2);
-                playerScript.TakeDamage(damage);
-
-                attackNext = Time.time + attackCooldown;
-
+                if (Time.time > attackNext)
+                {
+                    foreach (Collider2D hit in hits)
+                    {
+                        if (hit.gameObject.CompareTag("Player"))
+                        {
+                            // Attack the player
+                            anim.SetTrigger("attack");
+                            playerScript.TakeDamage(damage);
+                            attackSound.Play();
+                            attackNext = Time.time + attackCooldown;
+                            break;
+                        }
+                    }
+                }
 
             }
+        }
 
+    }
+    private void OnDrawGizmosSelected()
+    {
+        if (AttackRangeCenter != null)
+        {
+            Gizmos.DrawWireSphere(AttackRangeCenter.position, attackRange);
         }
     }
-}
 
+    public void IsAttacking()
+    {
+        isAttacking = true;
+    }
+    public void IsNotAttacking()
+    {
+        isAttacking = false;
+    }
+}

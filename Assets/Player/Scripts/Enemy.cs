@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     private Collider2D coll;
     private Rigidbody2D rb;
     public bool isDead;
+    public bool isAttacked = false;
 
 
     void Start()
@@ -60,8 +61,11 @@ public class Enemy : MonoBehaviour
     public void Disable()
     {
         coll.enabled = false;
-        rb.bodyType = RigidbodyType2D.Static;
+        rb.velocity = Vector3.zero;
     }
-
+    public void IsAttacked()
+    { isAttacked = true; }
+    public void IsNotAttacked()
+    { isAttacked = false; }
 
 }
