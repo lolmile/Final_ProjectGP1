@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour
+public class Win : MonoBehaviour
 {
     // Start is called before the first frame update
-    public void clickPlayButton()
+    public void clickMainMenuButton()
     {
-        SceneManager.LoadScene("NewMAp");
+        SceneManager.LoadScene("MainMenu");
     }
     public void ClickQuitButton()
     {
         Application.Quit();
     }
 }
+
